@@ -1,0 +1,13 @@
+nameservers = { 192.168.11.1 }
+dns_bind_interfaces = { 127.0.0.1, ::1 }
+name www.example.com {
+	check_frequency = 30
+        selection_method = group_rtt_rr
+	failure_mode = all
+	candidate www1.east.example.com {
+		check_address = "http://www1.east.example.com/"
+	}
+	candidate www1.west.example.com {
+		check_address = "http://www1.west.example.com/"
+	}
+}
